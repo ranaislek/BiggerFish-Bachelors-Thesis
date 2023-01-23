@@ -28,7 +28,7 @@ class Warehouse:
             player_name = player.name
         else:
             player_name = player
-        new_data_point = [*trace, codec, browser, player_name, platform, user, timestamp]
+        new_data_point = [*trace, codec.lower(), browser.upper(), player_name.upper(), platform, user, timestamp]
         self.raw_data_points.append(new_data_point)
 
     def get_df(self):
@@ -175,12 +175,13 @@ def read_files(opts, warehouse: Warehouse):
             for row in data:
                 warehouse.insert(row)
 
-def evaluate(evaluator, targets, relaxations, number_of_folds):
+def evaluate(evaluator, targets, relaxations, number_of_folds, out_directory):
     print("Starting the evaluation")
     output_file_name = f"evaluations_{int(time.time())}.csv"
+    output_path = os.path.join(out_directory, output_file_name)
 
     header = ("target", "browser", "player", "codec", "platform", "user", "data_points", "mean", "stdev", *[f"fold_{i+1}" for i in range(number_of_folds)])
-    write_line_to_csv(output_file_name, header)
+    write_line_to_csv(output_path, header)
 
     for target in targets:
         evaluations, total = evaluator.evaluate(target=target, relaxations=relaxations, folds=number_of_folds)
@@ -191,7 +192,7 @@ def evaluate(evaluator, targets, relaxations, number_of_folds):
             if data_point_amount > 0:
                 print(f"Target={target}", browser, player, codec, platform, user, data_point_amount, mean, stdev)
 
-            write_line_to_csv(output_file_name, line)
+            write_line_to_csv(output_path, line)
 
 def analyze(evaluator: Evaluator, targets, relaxations):
     print("Starting the analyzation")
@@ -212,6 +213,7 @@ def write_line_to_csv(file, line):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("dir")
+    parser.add_argument("--out", "-o", default=".")
     parser.add_argument("--analyze",  action='store_true')
     parser.add_argument("--targets", choices=["codec", "player", "browser", "platform", "user", "*"], nargs="+")
     parser.add_argument("--relax", choices=["codec", "player", "browser", "platform", "user", "*"], nargs="*", default=[])
@@ -227,6 +229,8 @@ def main():
     if relaxations == ["*"]:
         relaxations = ["codec", "player", "browser", "platform", "user"]
 
+    out_directory = opts.out
+
     warehouse = Warehouse()
 
     print("Reading files...")
@@ -240,7 +244,7 @@ def main():
     if opts.analyze:
         analyze(evaluator, targets=targets, relaxations=relaxations)
     else:
-        evaluate(evaluator, targets=targets, relaxations=relaxations, number_of_folds=number_of_folds)
+        evaluate(evaluator, targets=targets, relaxations=relaxations, number_of_folds=number_of_folds, out_directory=out_directory)
 
     
 if __name__ == "__main__":

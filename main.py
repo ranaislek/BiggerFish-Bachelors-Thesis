@@ -37,7 +37,7 @@ def run(file_path, trace_length, player_type, browser="CHROME"):
         
         trace = collector.collect_traces()
         player_thread.join()
-        return [trace, file_path, browser, player_type.name, platform.platform(), os.getlogin(), int(time.time())]
+        return [trace, file_path, browser.upper(), player_type.name.upper(), platform.platform(), os.getlogin(), int(time.time())]
 
 def ensure_output_file_does_not_exist(out_file):
     if os.path.exists(out_file):
