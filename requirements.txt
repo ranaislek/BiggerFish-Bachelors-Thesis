@@ -6,6 +6,7 @@ requests
 scikit-learn
 selenium
 tqdm
+seaborn
 
 # analysis
 matplotlib
