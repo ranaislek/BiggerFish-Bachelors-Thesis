@@ -1,1 +1,0 @@
-We start the analysis with predicting the type of codec which the played video is encoded with. Predicting codec is a harder task then predicting the video player software. We believe this is because the task of decoding a video does not differ much from one codec to another. Our model performed similiary across different platforms.
