@@ -1,4 +1,6 @@
 # There’s Always a Bigger Fish 🎣
+Sabancı University Bachelor's Thesis 2024
+Team: Ali Parlakçı, Doğukan Yıldırım, Rana İşlek
 
 Code from the paper “There’s Always a Bigger Fish: A Clarifying Analysis of a Machine-Learning-Assisted Side-Channel Attack”
 
