@@ -5,10 +5,23 @@
 <div align="center">
     <img src="https://sabanciuniv.edu/themes/custom/su/logo.svg" alt="SU Logo" width="300"/>
 </div>
-
+<br>
 Team: Ali Parlakçı, Doğukan Yıldırım, Rana İşlek
 
-Code from the paper “There’s Always a Bigger Fish: A Clarifying Analysis of a Machine-Learning-Assisted Side-Channel Attack”
+Code from the paper “There’s Always a Bigger Fish: A Clarifying Analysis of a Machine-Learning-Assisted Side-Channel Attack”.
+
+You can reach our paper through this [link](https://github.com/ranaislek/BiggerFish-Bachelors-Thesis/blob/main/Reports%20%26%20Paper/Loop_Attacks_on_GPUs.pdf).
+ 
+ ## Abstract
+A loop-counting attack increments the value of a counter during a short period of time, repeats the experiments multiple
+times, and analyzes the sequence of counter values observed, which are affected by the system interrupts, to infer secret information
+about a victim. These attacks have been so far leveraged for website fingerprinting. In this work, we show that the same attack can also
+be used for GPU (graphics processing unit) application fingerprinting. More specifically, we demonstrate that the GPU applications
+typically cause distinguishable patterns of interrupts between the GPU and the CPU, affecting the counter values, such that the
+sequence of counter values can be analyzed to determine the application running on the GPU. In our experiments conducted on
+various combinations of operating systems (OS), browsers, media players, and video codecs, we observed that the proposed approach
+correctly predicted the media player running on the GPU with an average accuracy of 87.99% and the codec of the video being played
+with an average accuracy of 62.92%
 
 ## Setup
 Rana is here and Ali is happy.
