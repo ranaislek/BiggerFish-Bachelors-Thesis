@@ -8,6 +8,7 @@
 <br>
 Team: Ali Parlakçı, Doğukan Yıldırım, Rana İşlek
 
+<br>
 Code from the paper “There’s Always a Bigger Fish: A Clarifying Analysis of a Machine-Learning-Assisted Side-Channel Attack”.
 
 You can reach our paper through this [link](https://github.com/ranaislek/BiggerFish-Bachelors-Thesis/blob/main/Reports%20%26%20Paper/Loop_Attacks_on_GPUs.pdf).
