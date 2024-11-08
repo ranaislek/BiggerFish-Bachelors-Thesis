@@ -7,7 +7,6 @@
 </div>
 
 <br>
-
 Team: Ali Parlakçı, Doğukan Yıldırım, Rana İşlek
 
 <br>
